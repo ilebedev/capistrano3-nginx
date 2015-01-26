@@ -4,7 +4,7 @@ upstream <%= fetch(:application) %>-app-server {
 <% if fetch(:app_server_socket) %>
   server unix:<%= fetch(:app_server_socket) %> fail_timeout=0;
 <% elsif fetch(:app_server_port) %>
-  <% Array.wrap(fetch(:app_server_port)).each do |port| %>
+  <% [*fetch(:app_server_port)].each do |port| %>
     server <%= fetch(:app_server_host, '127.0.0.1') %>:<%= port %> fail_timeout=0;
   <% end %>
 <% end %>
