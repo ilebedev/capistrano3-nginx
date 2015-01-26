@@ -128,7 +128,8 @@ set :app_server_host, "127.0.0.1"
 
 # The port the application server is running on
 # no default value
-set :app_server_port, 8080
+# If set to an array, multiple upstream server lines, one per port, will be generated
+set :app_server_port, [3000, 3001, 3002, 3003]
 ```
 
 ## Thanks
